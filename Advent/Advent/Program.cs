@@ -26,8 +26,8 @@ class Program
         if (IncludeDay(2))
         {
             var day2 = new Day02();
-            Output(2, 1, "Part 1", day2.Part1(InputData.Day02));
-            Output(2, 2, "Part 2", day2.Part2(InputData.Day02));
+            Output(2, 1, "Cube sums", day2.Sums(InputData.Day02));
+            Output(2, 2, "Cube powers", day2.Powers(InputData.Day02));
         }
         
         if (IncludeDay(3))
@@ -197,12 +197,12 @@ class Program
         Console.WriteLine("Day       Part 1    Part 2");
         for (int i = 0; i < 25; i++)
         {
-            if (IncludeDay(i + 1))
+            if (IncludeDay(i + 1, false))
                 Console.WriteLine($"{i + 1,-10}{Times[i, 0],5} ms  {Times[i, 1],5} ms");
         }
     }
 
-    static bool IncludeDay(int day)
+    static bool IncludeDay(int day, bool header = true)
     {
         if (DateTime.Now < new DateTime(2023, 12, day)) return false;
         
@@ -210,9 +210,12 @@ class Program
 
         _stopwatch.Reset();
         _stopwatch.Start();
-        Console.WriteLine();
-        Console.WriteLine($"DAY {day}");
-        Console.WriteLine($"==========");
+        if (header)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"DAY {day}");
+            Console.WriteLine($"==========");
+        }
 
         return true;
     }
