@@ -23,10 +23,9 @@ public class Day03
         var numbers = new List<(int number, bool near)>();
         var gears = new Dictionary<(int, int), List<int>>();
 
-        bool extending;
         for (var row = 0; row < rows.Length; row++)
         {
-            extending = false;
+            var extending = false;
             for (var col = 0; col < rows[0].Length; col++)
             {
                 if (char.IsDigit(rows[row][col]))
@@ -34,7 +33,7 @@ public class Day03
                     if (!extending) 
                         numbers.Add((0, false));
                     
-                    var near = numbers[^1].Item2;
+                    var near = numbers[^1].near;
 
                     var startCol = extending ? 1 : col > 0 ? -1 : 0;
                     var endCol = col < rows[0].Length - 1 ? 1 : 0;
