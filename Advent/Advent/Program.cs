@@ -33,8 +33,8 @@ class Program
         if (IncludeDay(3))
         {
             var day3 = new Day03();
-            Output(3, 1, "Part 1", day3.Part1(InputData.Day03));
-            Output(3, 2, "Part 2", day3.Part2(InputData.Day03));
+            Output(3, 1, "Sum of parts", day3.SumParts(InputData.Day03));
+            Output(3, 2, "Gear ratios", day3.GearRatios(InputData.Day03));
         }
         
         if (IncludeDay(4))

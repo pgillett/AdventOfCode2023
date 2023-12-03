@@ -15,25 +15,34 @@ public class Day03Test
         _day03 = new Day03();
     }
 
-    // [TestMethod]
-    // public void TestDataPart1ShouldBe()
-    // {
-    //     var expectedResult = 0;
-    //
-    //     var actualResult = _day03.Part1(_test);
-    //
-    //     actualResult.Should().Be(expectedResult);
-    // }
-    //
-    // [TestMethod]
-    // public void TestDataPart2ShouldBe()
-    // {
-    //     var expectedResult = 0;
-    //
-    //     var actualResult = _day03.Part2(_test);
-    //
-    //     actualResult.Should().Be(expectedResult);
-    // }
+    [TestMethod]
+    public void TestDataPart1ShouldBe4361()
+    {
+        var expectedResult = 4361;
+    
+        var actualResult = _day03.SumParts(_test);
+    
+        actualResult.Should().Be(expectedResult);
+    }
+    
+    [TestMethod]
+    public void TestDataPart2ShouldBe467835()
+    {
+        var expectedResult = 467835;
+    
+        var actualResult = _day03.GearRatios(_test);
+    
+        actualResult.Should().Be(expectedResult);
+    }
 
-    private string _test = @"";
+    private string _test = @"467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..";
 }
