@@ -116,7 +116,11 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Card   1: 61 73 92 28 96 76 32 62 44 53 | 61 17 26 13 92  5 73 29 53 42 62 46 96 32 21 97 99 28 12  4  7 44 19 71 76
+        ///Card   2:  3 88 36 12  2  9 15 55 21 89 | 23 39 98 36  2 24  9  3 78 95 55 37 12 61 38 88 85 89 13 15 96 45 21 25 30
+        ///Card   3: 96 44 52 56 82 89 73 50  9 68 | 39 71 64 32 13 57 56 67 34 84 51 53 41 16 38 63  5 80 70 75  7 76 85 83 18
+        ///Card   4: 54 84 76 44 38 33 12 17 93 94 | 18 21 53 11  7 98 78 92  9 32 29 50 86 23 95 77 22 79 71 80 60 35 54 36 91
+        ///Card   5:  8 11 33 98 37 80 39 76 53 91  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Day04 {
             get {
