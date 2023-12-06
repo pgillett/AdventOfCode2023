@@ -35,6 +35,25 @@ public class Day03Test
         actualResult.Should().Be(expectedResult);
     }
 
+    [TestMethod]
+    public void RealDataPart1ShouldBe546563()
+    {
+        var expectedResult = 546563;
+    
+        var actualResult = _day03.SumParts(InputData.Day03);
+    
+        actualResult.Should().Be(expectedResult);
+    }
+    
+    [TestMethod]
+    public void RealDataPart2ShouldBe91031374()
+    {
+        var expectedResult = 91031374;
+    
+        var actualResult = _day03.GearRatios(InputData.Day03);
+    
+        actualResult.Should().Be(expectedResult);
+    }
     private string _test = @"467..114..
 ...*......
 ..35..633.

@@ -34,6 +34,26 @@ public class Day02Test
     
         actualResult.Should().Be(expectedResult);
     }
+    
+    [TestMethod]
+    public void RealDataPart1ShouldBe2239()
+    {
+        var expectedResult = 2239;
+    
+        var actualResult = _day02.Sums(InputData.Day02);
+    
+        actualResult.Should().Be(expectedResult);
+    }
+    
+    [TestMethod]
+    public void RealDataPart2ShouldBe83435()
+    {
+        var expectedResult = 83435;
+    
+        var actualResult = _day02.Powers(InputData.Day02);
+    
+        actualResult.Should().Be(expectedResult);
+    }
 
     private string _test = @"Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue

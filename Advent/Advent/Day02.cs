@@ -21,14 +21,14 @@ public class Day02
 
         var list = split.Skip(1)
             .SelectMany(show => show.Split(','))
-            .Select(cube => cube.Trim().Split(' '))
-            .Select(count => (colour: count[1], count: int.Parse(count[0])))
+            .Select(cube => cube.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+            .Select(count => (colour: count[1][0], count: int.Parse(count[0])))
             .ToArray();
 
         return (int.Parse(split[0].Replace("Game ", "")), 
-            FindMax(list, "red"), FindMax(list, "green"), FindMax(list, "blue"));
+            FindMax(list, 'r'), FindMax(list, 'g'), FindMax(list, 'b'));
     }
 
-    private int FindMax((string colour, int count)[] list, string colour) =>
+    private int FindMax((char colour, int count)[] list, char colour) =>
         list.Where(c => c.colour == colour).Max(c => c.count);
 }

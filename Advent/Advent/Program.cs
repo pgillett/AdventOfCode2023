@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using Advent.Benchmarks;
+using BenchmarkDotNet.Running;
 
 namespace Advent;
 
@@ -8,7 +10,7 @@ class Program
     private static Stopwatch _stopwatch;
 
     private const int From = 1;
-    private const int To = 25;
+    private const int To = 1;
 
     private static readonly int[,] Times = new int[25, 2];
 
@@ -18,34 +20,27 @@ class Program
 
         if (IncludeDay(1))
         {
-            var day1 = new Day01();
-            Output(1, 1, "Calibration sum", day1.CalibrationSum(InputData.Day01));
-            Output(1, 2, "Calibration with words", day1.CalibrationSumLetters(InputData.Day01));
+            BenchmarkRunner.Run<Day01Benchmark>();
         }
         
         if (IncludeDay(2))
         {
-            var day2 = new Day02();
-            Output(2, 1, "Cube sums", day2.Sums(InputData.Day02));
-            Output(2, 2, "Cube powers", day2.Powers(InputData.Day02));
+            BenchmarkRunner.Run<Day02Benchmark>();
         }
         
         if (IncludeDay(3))
         {
-            var day3 = new Day03();
-            Output(3, 1, "Sum of parts", day3.SumParts(InputData.Day03));
-            Output(3, 2, "Gear ratios", day3.GearRatios(InputData.Day03));
+            BenchmarkRunner.Run<Day03Benchmark>();
         }
         
         if (IncludeDay(4))
         {
-            var day4 = new Day04();
-            Output(4, 1, "Part 1", day4.Part1(InputData.Day04));
-            Output(4, 2, "Part 2", day4.Part2(InputData.Day04));
+            BenchmarkRunner.Run<Day04Benchmark>();
         }
         
         if (IncludeDay(5))
         {
+            BenchmarkRunner.Run<Day05Benchmark>();
             var day5 = new Day05();
             Output(5, 1, "Part 1", day5.Part1(InputData.Day05));
             Output(5, 2, "Part 2", day5.Part2(InputData.Day05));

@@ -21,7 +21,7 @@ namespace Advent {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class InputData {
+    public class InputData {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -35,7 +35,7 @@ namespace Advent {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Advent.InputData", typeof(InputData).Assembly);
@@ -50,7 +50,7 @@ namespace Advent {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -84,7 +84,7 @@ namespace Advent {
         ///onetwo5
         ///1sevenngjq [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day01 {
+        public static string Day01 {
             get {
                 return ResourceManager.GetString("Day01", resourceCulture);
             }
@@ -97,7 +97,7 @@ namespace Advent {
         ///Game 4: 2 blue, 5 green, 2 red; 7 red, 3 green; 3 blue, 2 red; 16 green, 2 blue
         ///Game 5: 1 blue, 9 red; 5 blue, 9 green, 6 red; 8 red, 10 blue, 3 green; 3 red, 13 green, 4 blue; 5 green, 9 red, 6 b [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day02 {
+        public static string Day02 {
             get {
                 return ResourceManager.GetString("Day02", resourceCulture);
             }
@@ -109,7 +109,7 @@ namespace Advent {
         ///223............275.....................725.....$.........460....176............................*............+.................&amp;.267.........
         ///.........854..........919.798...............541.....302...................723......$.. [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day03 {
+        public static string Day03 {
             get {
                 return ResourceManager.GetString("Day03", resourceCulture);
             }
@@ -122,16 +122,29 @@ namespace Advent {
         ///Card   4: 54 84 76 44 38 33 12 17 93 94 | 18 21 53 11  7 98 78 92  9 32 29 50 86 23 95 77 22 79 71 80 60 35 54 36 91
         ///Card   5:  8 11 33 98 37 80 39 76 53 91  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day04 {
+        public static string Day04 {
             get {
                 return ResourceManager.GetString("Day04", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to seeds: 2637529854 223394899 3007537707 503983167 307349251 197383535 3543757609 276648400 2296792159 141010855 116452725 5160533 2246652813 49767336 762696372 160455077 3960442213 105867001 1197133308 38546766
+        ///
+        ///seed-to-soil map:
+        ///1024364543 1121869540 764570177
+        ///1788934720 0 30748436
+        ///710359306 576061773 314005237
+        ///1819683156 509305212 66756561
+        ///478556776 890067010 231802530
+        ///0 30748436 478556776
+        ///
+        ///soil-to-fertilizer map:
+        ///3998185854 3762642503 103735883
+        ///2968507762 2068943953 132922295
+        ///1615660383 31282 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day05 {
+        public static string Day05 {
             get {
                 return ResourceManager.GetString("Day05", resourceCulture);
             }
@@ -140,7 +153,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day06 {
+        public static string Day06 {
             get {
                 return ResourceManager.GetString("Day06", resourceCulture);
             }
@@ -149,7 +162,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day07 {
+        public static string Day07 {
             get {
                 return ResourceManager.GetString("Day07", resourceCulture);
             }
@@ -158,7 +171,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day08 {
+        public static string Day08 {
             get {
                 return ResourceManager.GetString("Day08", resourceCulture);
             }
@@ -167,7 +180,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day09 {
+        public static string Day09 {
             get {
                 return ResourceManager.GetString("Day09", resourceCulture);
             }
@@ -176,7 +189,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day10 {
+        public static string Day10 {
             get {
                 return ResourceManager.GetString("Day10", resourceCulture);
             }
@@ -185,7 +198,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day11 {
+        public static string Day11 {
             get {
                 return ResourceManager.GetString("Day11", resourceCulture);
             }
@@ -194,7 +207,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day12 {
+        public static string Day12 {
             get {
                 return ResourceManager.GetString("Day12", resourceCulture);
             }
@@ -203,7 +216,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day13 {
+        public static string Day13 {
             get {
                 return ResourceManager.GetString("Day13", resourceCulture);
             }
@@ -212,7 +225,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day14 {
+        public static string Day14 {
             get {
                 return ResourceManager.GetString("Day14", resourceCulture);
             }
@@ -221,7 +234,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day15 {
+        public static string Day15 {
             get {
                 return ResourceManager.GetString("Day15", resourceCulture);
             }
@@ -230,7 +243,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day16 {
+        public static string Day16 {
             get {
                 return ResourceManager.GetString("Day16", resourceCulture);
             }
@@ -239,7 +252,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day17 {
+        public static string Day17 {
             get {
                 return ResourceManager.GetString("Day17", resourceCulture);
             }
@@ -248,7 +261,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day18 {
+        public static string Day18 {
             get {
                 return ResourceManager.GetString("Day18", resourceCulture);
             }
@@ -257,7 +270,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day19 {
+        public static string Day19 {
             get {
                 return ResourceManager.GetString("Day19", resourceCulture);
             }
@@ -266,7 +279,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day20 {
+        public static string Day20 {
             get {
                 return ResourceManager.GetString("Day20", resourceCulture);
             }
@@ -275,7 +288,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day21 {
+        public static string Day21 {
             get {
                 return ResourceManager.GetString("Day21", resourceCulture);
             }
@@ -284,7 +297,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day22 {
+        public static string Day22 {
             get {
                 return ResourceManager.GetString("Day22", resourceCulture);
             }
@@ -293,7 +306,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day23 {
+        public static string Day23 {
             get {
                 return ResourceManager.GetString("Day23", resourceCulture);
             }
@@ -302,7 +315,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day24 {
+        public static string Day24 {
             get {
                 return ResourceManager.GetString("Day24", resourceCulture);
             }
@@ -311,7 +324,7 @@ namespace Advent {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string Day25 {
+        public static string Day25 {
             get {
                 return ResourceManager.GetString("Day25", resourceCulture);
             }
