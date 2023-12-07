@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using Advent.Benchmarks;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Engines;
+using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 
 namespace Advent;
@@ -9,14 +12,28 @@ class Program
 {
     private static Stopwatch _stopwatch;
 
-    private const int From = 1;
-    private const int To = 1;
+    private const int From = 7;
+    private const int To = 7;
 
     private static readonly int[,] Times = new int[25, 2];
 
     static void Main(string[] args)
     {
         _stopwatch = new Stopwatch();
+
+        // var config = ManualConfig.Create(DefaultConfig.Instance)
+        //     .WithOptions(ConfigOptions.JoinSummary)
+        //     .WithOptions(ConfigOptions.DisableLogFile);
+        //
+        // BenchmarkRunner.Run(new[]
+        // {
+        //     BenchmarkConverter.TypeToBenchmarks(typeof(Day01Benchmark), config),
+        //     BenchmarkConverter.TypeToBenchmarks(typeof(Day02Benchmark), config),
+        //     // BenchmarkConverter.TypeToBenchmarks(typeof(Day03Benchmark)),
+        //     // BenchmarkConverter.TypeToBenchmarks(typeof(Day04Benchmark)),
+        //     // BenchmarkConverter.TypeToBenchmarks(typeof(Day05Benchmark)),
+        //     // BenchmarkConverter.TypeToBenchmarks(typeof(Day06Benchmark)),
+        // });
 
         if (IncludeDay(1))
         {
@@ -41,23 +58,16 @@ class Program
         if (IncludeDay(5))
         {
             BenchmarkRunner.Run<Day05Benchmark>();
-            var day5 = new Day05();
-            Output(5, 1, "Part 1", day5.Part1(InputData.Day05));
-            Output(5, 2, "Part 2", day5.Part2(InputData.Day05));
         }
         
         if (IncludeDay(6))
         {
-            var day6 = new Day06();
-            Output(6, 1, "Part 1", day6.Part1(InputData.Day06));
-            Output(6, 2, "Part 2", day6.Part2(InputData.Day06));
+            BenchmarkRunner.Run<Day06Benchmark>();
         }
         
         if (IncludeDay(7))
         {
-            var day7 = new Day07();
-            Output(7, 1, "Part 1", day7.Part1(InputData.Day07));
-            Output(7, 2, "Part 2", day7.Part2(InputData.Day07));
+            BenchmarkRunner.Run<Day07Benchmark>();
         }
         
         if (IncludeDay(8))

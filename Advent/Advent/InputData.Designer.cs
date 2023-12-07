@@ -151,7 +151,8 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Time:        49     97     94     94
+        ///Distance:   263   1532   1378   1851.
         /// </summary>
         public static string Day06 {
             get {
@@ -160,7 +161,54 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 32T3J 893
+        ///A9942 54
+        ///J57Q8 571
+        ///779TK 931
+        ///69696 457
+        ///Q55Q5 478
+        ///99399 735
+        ///TA756 782
+        ///QQQKQ 838
+        ///QTJJA 995
+        ///J7T7T 8
+        ///22792 790
+        ///588K8 376
+        ///J77KT 191
+        ///72T29 575
+        ///58585 196
+        ///58535 394
+        ///263K5 566
+        ///ATAAA 352
+        ///7K7AK 477
+        ///A3829 14
+        ///22349 954
+        ///KT647 244
+        ///84848 208
+        ///82A8A 77
+        ///3A383 698
+        ///97788 820
+        ///QQ4Q7 991
+        ///67Q66 837
+        ///73QQ7 879
+        ///Q4Q5Q 69
+        ///Q5Q33 767
+        ///585TT 52
+        ///5K859 943
+        ///238A3 170
+        ///48887 668
+        ///QAQQQ 591
+        ///A8755 666
+        ///4AK62 157
+        ///4A9J4 350
+        ///TJAAA 280
+        ///AT9T9 592
+        ///7Q497 390
+        ///56748 681
+        ///9425A 414
+        ///5357J 737
+        ///5QQQQ 597
+        ///38 [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day07 {
             get {
