@@ -217,7 +217,21 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to LRRLRRRLLRRRLRRRLLRRLRRRLRRLRRLRLRLRLRLRLLRRRLRRLRLRRRLRRRLRLRRRLRLRRLRRRLRRRLRLLRRRLRLLLRLRRRLRLRRLRRLLLLRRLRRLRLRLRRLRLRRLRRRLRRRLRLRLRRLLLLRRLRLRRLLRRRLRLRLRLRRRLRLLLRLRLRRRLRLRRRLRRRLRRRLLRRLRRRLRRRLRRRLRRRLRLLRRRLRLRRRLRLRLRRRLRRLRRLLRRRLRRRLRRRLRLRLRLRRLRRRLRRLRLRLRLRRRR
+        ///
+        ///TJF = (TXF, NGK)
+        ///PDL = (TXD, FRT)
+        ///MVB = (HLF, BMQ)
+        ///LKG = (JTG, THR)
+        ///MPN = (CKC, FKR)
+        ///HHN = (HFV, FGD)
+        ///TMM = (GJG, CCJ)
+        ///HJD = (PHB, FJM)
+        ///JNC = (NMB, SND)
+        ///HHR = (NBB, HMD)
+        ///KCC = (BHB, PDC)
+        ///CKN = (FRD, TQK)
+        ///NCG = (VSC, PTD [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day08 {
             get {
@@ -226,7 +240,12 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54
+        ///12 27 47 68 92 149 343 943 2562 6504 15418 34500 73686 151710 303812 596709 1157888 2232401 4290657 8227316 15717112
+        ///-1 12 52 135 290 585 1167 2315 4511 8546 15696 28027 48918 83927 142167 238407 396167 652136 1062308 1710303 2718418
+        ///5 20 41 73 130 249 514 1092 2286 4613 8918 16538 29533 51004 85521 139687 222867 348114 533327 802679 1188356
+        ///4 -1 -6 -11 -16 -21 -26 -31 -36 -41 -46 -51 -56 -61 -66 -71 -76 -81 -86 -91 -96
+        ///17 19 24 49 132 341  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day09 {
             get {
