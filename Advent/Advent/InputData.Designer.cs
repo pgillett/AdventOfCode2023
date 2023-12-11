@@ -254,7 +254,10 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to FF-7F-7.|FJ7L-7-.FL-F7|-7FFF77J.|7F--J-FF7-L..-7FF-LF7F|-F|7-L-FLJ7-FF-JFF-7-7.-J-.--7.-F---FJ-|..-J7.|J-77-F7---77FFLJ7.LFJF7.FL|-J--7-LJ-|
+        ///J.-L-JF-L7J|LL|7FL7LL||.LJ--J7JFL|J7|7.JLJ|L-L7L7-7J|L7|L||..|7L.L7.FL7-L--L-JLJ..FLJ|F7L|7-JJ-LLLJJLF..F77FLJ7FF7-L7|-L7-|7|.FFJJJ7L-LJ|..J
+        ///||..L7.LL-7J-.F77F7JF|--L.|7LJ-J.L-FF7J...|||JFJLJ7.L-L77L|.7.||7-J7J7LFJ.7F||-|.7LL77.JLJJ7|F|F|..F.|.FLLL-.---F-7.F7J.7-JLL7--77.|FFJ.7F7J
+        ///F-7J.L-7LFJJ7.LF-F77.|LFLFFJ|JJL7JLL|JLF--7J7-L.|FJ.LF-J--L-|.L7LL|7.-J|L|--F7JL7L.LLJ [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day10 {
             get {
