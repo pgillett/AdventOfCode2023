@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using CommandLine;
 
 namespace Advent;
 
@@ -11,7 +12,7 @@ public class Day12
     public int Part1(string input)
     {
         var cards = input.Split(Environment.NewLine)
-            .Select(Parse).ToArray();
+            .Select(l => new CardData(Parse(l))).ToArray();
 
         var total = 0;
         foreach (var card in cards)
@@ -29,63 +30,79 @@ public class Day12
         return (springs, lengths);
     }
 
-    public int Card((string, int[]) card)
+    public class CardData
     {
-        var lengths = card.Item2;
-        var springs = card.Item1;
-        
-        var minLength = lengths.Sum() + lengths.Length - 1;
+        public string Springs;
+        public int[] Lengths;
+        public int[] Left;
+        public int[] Totals;
+        public int[] Min;
+        public int[] Used;
+        public int[] Ends;
+        public int[] Could;
 
-        var queue = new Queue<int[]>();
-
-        var left = new int[springs.Length];
-        var totals = new int[lengths.Length];
-        var min = new int[springs.Length];
-        var used = new int[lengths.Length];
-        var ends = new int[lengths.Length];
+        public CardData((string springs, int[] lengths) input)
         {
-            var totalFixed = springs.Count(c => c == '#');
+            Springs = input.springs;
+            Lengths = input.lengths;
+            
+            Left = new int[Springs.Length];
+            Totals = new int[Lengths.Length];
+            Min = new int[Springs.Length];
+            Used = new int[Lengths.Length];
+            Ends = new int[Lengths.Length];
             {
-                var total = 0;
-                for (var c = 0; c < springs.Length; c++)
+                var totalFixed = Springs.Count(c => c == '#');
                 {
-                    if (springs[c] == '#')
-                        total++;
-                    min[c] = total;
-                    left[c] = totalFixed - total;
-                }
+                    var total = 0;
+                    for (var c = 0; c < Springs.Length; c++)
+                    {
+                        if (Springs[c] == '#')
+                            total++;
+                        Min[c] = total;
+                        Left[c] = totalFixed - total;
+                    }
 
-                total = lengths.Sum();
-                var use = 0;
-                for (var t = 0; t < lengths.Length; t++)
-                {
-                    used[t] = use;
-                    use += lengths[t];
-                    totals[t] = total;
-                    total -= lengths[t];
-                }
+                    total = Lengths.Sum();
+                    var use = 0;
+                    for (var t = 0; t < Lengths.Length; t++)
+                    {
+                        Used[t] = use;
+                        use += Lengths[t];
+                        Totals[t] = total;
+                        total -= Lengths[t];
+                    }
 
-                total = springs.Length;
-                for (var t = lengths.Length - 1; t >= 0; t--)
-                {
-                    total -= lengths[t];
-                    ends[t] = total;
-                    total -= 1;
+                    total = Springs.Length;
+                    for (var t = Lengths.Length - 1; t >= 0; t--)
+                    {
+                        total -= Lengths[t];
+                        Ends[t] = total;
+                        total -= 1;
+                    }
                 }
             }
-        }
 
-        var could = new int[springs.Length+1];
-        could[0] = 0;
-        for (var i = 1; i < springs.Length+1; i++)
-            could[i] = could[i - 1] + (springs[i-1] != '.' ? 1 : 0);
+            Could = new int[Springs.Length+1];
+            Could[0] = 0;
+            for (var i = 1; i < Springs.Length+1; i++)
+                Could[i] = Could[i - 1] + (Springs[i-1] != '.' ? 1 : 0);
+
+        }
+    }
+
+    public int Card(CardData card)
+    {
+        var minLength = card.Lengths.Sum() + card.Lengths.Length - 1;
+
+        var queue = new Queue<int[]>();
 
         var currentPos = new int[0];
 
         queue.Enqueue(currentPos);
         
         Debug.WriteLine("");
-        Debug.WriteLine($"{springs} {string.Join(',',lengths)}");
+        Debug.WriteLine($"{card.Springs} {string.Join(',',card.Lengths)}");
         Debug.WriteLine("----------------");
 
         var count = 0;
@@ -101,54 +118,54 @@ public class Day12
             
             if (currentPos.Length > 0)
             {
-                next = currentPos[^1] + lengths[currentPos.Length - 1] + 1;
+                next = currentPos[^1] + card.Lengths[currentPos.Length - 1] + 1;
                 current = currentPos.Length;
             }
 
             if (current != lastCurrent)
                 lastCurrent = current;
 
-            var end = ends[current];
+            var end = card.Ends[current];
             
             {
                 for (var p = next; p <= end; p++)
                 {
-                    if (p > 0 && springs[p - 1] == '#')
+                    if (p > 0 && card.Springs[p - 1] == '#')
                         break;
                     
-                    if(springs[p] == '.')
+                    if(card.Springs[p] == '.')
                         continue;
                     
                     var match = true;
 
                     {
-                        var after = p + lengths[current];
-                        if (after < springs.Length && springs[after] == '#')
+                        var after = p + card.Lengths[current];
+                        if (after < card.Springs.Length && card.Springs[after] == '#')
                             match = false;
                     }
 
                     {
-                        if (totals[current] <= (left[p]-1))
+                        if (card.Totals[current] <= (card.Left[p]-1))
                             match = false;
-                        if (p > 0 && min[p - 1] > used[current])
+                        if (p > 0 && card.Min[p - 1] > card.Used[current])
                             continue;
 //                            match = false;
                     }
 
                     if (match)
                     {
-                        match = could[p + lengths[current]] - could[p] == lengths[current];
+                        match = card.Could[p + card.Lengths[current]] - card.Could[p] == card.Lengths[current];
                     }
                     
 
                     if (match)
                     {
-                        if (current == lengths.Length - 1)
+                        if (current == card.Lengths.Length - 1)
                         {
                             var all = true;
-                            for (var check = p+lengths[current]; check < springs.Length; check++)
+                            for (var check = p+card.Lengths[current]; check < card.Springs.Length; check++)
                             {
-                                if (springs[check] == '#')
+                                if (card.Springs[check] == '#')
                                 {
                                     all = false;
                                     break;
@@ -157,12 +174,12 @@ public class Day12
 
                             if (all)
                             {
-                                var chars = new char[springs.Length];
+                                var chars = new char[card.Springs.Length];
                                 Array.Fill(chars, '.');
-                                for (var s = 0; s < lengths.Length; s++)
+                                for (var s = 0; s < card.Lengths.Length; s++)
                                 {
-                                    var from = s < lengths.Length - 1 ? currentPos[s] : p;
-                                    for (var f = 0; f < lengths[s]; f++)
+                                    var from = s < card.Lengths.Length - 1 ? currentPos[s] : p;
+                                    for (var f = 0; f < card.Lengths[s]; f++)
                                         chars[from + f] = '#';
                                 }
 
@@ -201,7 +218,7 @@ public class Day12
                           card.springs;
             var positions = card.lengths.Concat(card.lengths).Concat(card.lengths)
                 .Concat(card.lengths).Concat(card.lengths).ToArray();
-            total+=Card((springs, positions));
+            total+=Card(new CardData((springs, positions)));
         }
         return total;
     }
