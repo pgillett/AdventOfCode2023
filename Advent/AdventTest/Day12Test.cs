@@ -92,13 +92,13 @@ public class Day12Test
     }
     
     [TestMethod]
-    public void TestDataPart2ShouldBe525152a()
+    public void TestDataPart2ShouldBe37366887898686()
     {
-        var expectedResult = 525152;
+        var expectedResult = 37366887898686;
     
-        // var actualResult = _day12.Part2(InputData.Day12);
-        //
-        // actualResult.Should().Be(expectedResult);
+        var actualResult = _day12.Part2(InputData.Day12);
+        
+        actualResult.Should().Be(expectedResult);
     }
 
     private string _test = @"???.### 1,1,3

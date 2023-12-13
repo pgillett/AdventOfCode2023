@@ -92,9 +92,7 @@ class Program
         
         if (IncludeDay(12))
         {
-            var day = new Day12();
-            day.Part2(InputData.Day12);//"????????????##?? 1,1,1,1,3");//InputData.Day12);
-//            BenchmarkRunner.Run<Day12Benchmark>();
+            BenchmarkRunner.Run<Day12Benchmark>();
         }
         
         if (IncludeDay(13))

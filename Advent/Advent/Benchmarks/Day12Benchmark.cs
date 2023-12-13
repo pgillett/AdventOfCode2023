@@ -12,7 +12,7 @@ public class Day12Benchmark
         day.Part1(InputData.Day12);
     }
     
-   // [Benchmark]
+    [Benchmark]
     public void Part2()
     {
         var day = new Day12();
