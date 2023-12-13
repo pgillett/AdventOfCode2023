@@ -9,12 +9,12 @@ namespace Advent;
 
 public class Day12
 {
-    public int Part1(string input)
+    public long Part1(string input)
     {
         var cards = input.Split(Environment.NewLine)
             .Select(l => new CardData(Parse(l))).ToArray();
 
-        var total = 0;
+        var total = 0L;
         foreach (var card in cards)
         {
             total+=Card(card);
@@ -91,7 +91,100 @@ public class Day12
         }
     }
 
-    public int Card(CardData card)
+    public long Card(CardData card)
+    {
+        var steps = new int[card.Lengths.Length];
+
+        Debug.WriteLine($"{card.Springs} {string.Join(',',card.Lengths)}");
+        return Iteration(0, card, steps);
+    }
+
+    public long Iteration(int current, CardData card, int[] steps)
+    {
+        var next = 0;
+        if (current > 0)
+        {
+            next = steps[current - 1] + card.Lengths[current - 1] + 1;
+        }
+
+        var end = card.Ends[current];
+
+
+        var total = 0L;
+        for (var p = next; p <= end; p++)
+        {
+            if (p > 0 && card.Springs[p - 1] == '#')
+                return total;
+
+            if (p > 0 && card.Min[p - 1] > card.Used[current])
+                return total;
+
+            if (card.Springs[p] == '.')
+                continue;
+
+            var match = true;
+
+            {
+                var after = p + card.Lengths[current];
+                if (after < card.Springs.Length && card.Springs[after] == '#')
+                    continue;
+            }
+
+            {
+                if (card.Totals[current] <= (card.Left[p] - 1))
+                    continue;
+//                            match = false;
+            }
+
+            
+                match = card.Could[p + card.Lengths[current]] - card.Could[p] == card.Lengths[current];
+            
+
+            if (match)
+            {
+           //     if(current<10)
+         //           Console.WriteLine($"{string.Join(',',steps.Take(current))}");
+                if (current == card.Lengths.Length - 1)
+                {
+                    var ls = p + card.Lengths[current];
+                    var all = ls == card.Springs.Length || card.Left[ls] == 0;//true;
+                    // for (var check = p + card.Lengths[current]; check < card.Springs.Length; check++)
+                    // {
+                    //     if (card.Springs[check] == '#')
+                    //     {
+                    //         all = false;
+                    //         break;
+                    //     }
+                    // }
+
+                    if (all)
+                    {
+                        // var chars = new char[card.Springs.Length];
+                        // Array.Fill(chars, '.');
+                        // for (var s = 0; s < card.Lengths.Length; s++)
+                        // {
+                        //     var from = s < card.Lengths.Length - 1 ? steps[s] : p;
+                        //     for (var f = 0; f < card.Lengths[s]; f++)
+                        //         chars[from + f] = '#';
+                        // }
+                        //
+                        //                            Debug.WriteLine($"{new string(chars)}");
+                        total++;
+                    }
+                }
+                else
+                {
+                    steps[current] = p;
+                    total += Iteration(current + 1, card, steps);
+                }
+            }
+        }
+
+        return total;
+    }
+    
+
+    public int Card2(CardData card)
     {
         var minLength = card.Lengths.Sum() + card.Lengths.Length - 1;
 
@@ -210,7 +303,7 @@ public class Day12
             .Select(Parse).ToArray();
 
         var total = 0L;
-        for (var c=0; c<cards.Length;c++)
+        for (var c=8; c<cards.Length;c++)
         {
             var card = cards[c];
             Console.WriteLine($"Card {c} of {cards.Length}");
