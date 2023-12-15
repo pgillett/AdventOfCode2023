@@ -12,8 +12,8 @@ class Program
 {
     private static Stopwatch _stopwatch;
 
-    private const int From = 13;
-    private const int To = 13;
+    private const int From = 15;
+    private const int To = 15;
 
     private static readonly int[,] Times = new int[25, 2];
 
@@ -34,7 +34,11 @@ class Program
         //     // BenchmarkConverter.TypeToBenchmarks(typeof(Day05Benchmark)),
         //     // BenchmarkConverter.TypeToBenchmarks(typeof(Day06Benchmark)),
         // });
-
+        //
+        // BenchmarkRunner.Run<ParsingBenchmark>();
+        //
+        // return;
+        //
         if (IncludeDay(1))
         {
             BenchmarkRunner.Run<Day01Benchmark>();
@@ -102,16 +106,12 @@ class Program
         
         if (IncludeDay(14))
         {
-            var day14 = new Day14();
-            Output(14, 1, "Part 1", day14.Part1(InputData.Day14));
-            Output(14, 2, "Part 2", day14.Part2(InputData.Day14));
+            BenchmarkRunner.Run<Day14Benchmark>();
         }
         
         if (IncludeDay(15))
         {
-            var day15 = new Day15();
-            Output(15, 1, "Part 1", day15.Part1(InputData.Day15));
-            Output(15, 2, "Part 2", day15.Part2(InputData.Day15));
+            BenchmarkRunner.Run<Day15Benchmark>();
         }
         
         if (IncludeDay(16))

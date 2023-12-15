@@ -350,7 +350,12 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to O.O#....O.O...O..OO#OO##..O..##...#..........OO..#.OO...................O..O##.#OOO...O#.#.#.O.O#OO.
+        ///.O..OO..O.O..O......OO.#....#O#.#.#.#.#.O.OO...#.O#.OOO.#.#.#.OO..#.#O...O.O.O.O#.#.O.O....#..O#O...
+        ///O....#..O..O.OO..#OO.O.....O#OOO..#.#......O...#..#..O......#O.#.O.#.O...#.#.#.........O#.......#OO.
+        ///......O.O##......###OO#..O#.#...O...O.....##.........#.OO.#........#OO.O....###...#.##..O........O.#
+        ///#.OO.....OOO....O.....OO.OOO..#O.OO...#...O......OO###........O..#.#.O..O......O#...O.....#.#...##..
+        ///#. [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day14 {
             get {
@@ -359,7 +364,7 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to tp-,pnm-,vrg-,nfk=6,qqc=2,zs=2,hm-,xnl=4,fszj=6,cx=7,zpfsz-,hdg=9,nqqm-,nfk-,pb-,cbn=5,ng=8,pdk=4,rd=7,sl=2,qtk=7,fkdp-,dxkx-,qc=9,dxtz-,bgzmkc-,jzv-,ljd-,nbh=7,dtr-,sbd=5,zt=2,zgj-,rbpq=7,vm=6,gq=3,qnjfm-,hxd=8,rsnbql=4,bdx=7,mvgfg=8,hv=4,ql=5,tnkt-,qdh-,dv-,dqclp-,tnc=2,vgk=7,rb=6,flzg=6,rv=5,qn-,fgdr-,gj=5,gg-,vtm-,btjv=5,xs-,rfbn-,hxd=6,bhxnh-,zr-,llq=7,ds-,xs-,hdvdp=1,ll=9,kgm=1,tj-,lmx=3,mn-,zbb-,xj-,pcv=1,xrl=7,mc=2,zf=3,rrl=7,mztj=2,pcp-,fvjj=6,tn=9,jc-,xsr=2,kkgj-,bnzq=7,vtld-,hx-,zs=5,fl-,pmjz-,hh [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day15 {
             get {
