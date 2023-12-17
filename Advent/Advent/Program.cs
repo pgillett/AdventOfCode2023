@@ -12,8 +12,8 @@ class Program
 {
     private static Stopwatch _stopwatch;
 
-    private const int From = 15;
-    private const int To = 15;
+    private const int From = 16;
+    private const int To = 16;
 
     private static readonly int[,] Times = new int[25, 2];
 
@@ -116,9 +116,7 @@ class Program
         
         if (IncludeDay(16))
         {
-            var day16 = new Day16();
-            Output(16, 1, "Part 1", day16.Part1(InputData.Day16));
-            Output(16, 2, "Part 2", day16.Part2(InputData.Day16));
+            BenchmarkRunner.Run<Day16Benchmark>();
         }
         
         if (IncludeDay(17))

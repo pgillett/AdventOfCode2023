@@ -34,17 +34,6 @@ public class Day10
         return steps / 2;
     }
     
-    private Direction GetStartDirection(int start, string map, int lineLength)
-    {
-        if (start > lineLength && (ParsePipe(map[start - lineLength]) & Direction.South) != 0)
-            return Direction.North;
-        if (start > 0 && (ParsePipe(map[start - 1]) & Direction.East) != 0)
-            return Direction.West;
-        if (start < map.Length - 1 && (ParsePipe(map[start + 1]) & Direction.West) != 0)
-            return Direction.East;
-        return Direction.South;
-    }
-
     public int Part2(string input)
     {
         var rowLength = input.IndexOf(Environment.NewLine[0]) + Environment.NewLine.Length;
@@ -85,6 +74,17 @@ public class Day10
             }
 
         return count;
+    }
+    
+    private Direction GetStartDirection(int start, string map, int lineLength)
+    {
+        if (start > lineLength && (ParsePipe(map[start - lineLength]) & Direction.South) != 0)
+            return Direction.North;
+        if (start > 0 && (ParsePipe(map[start - 1]) & Direction.East) != 0)
+            return Direction.West;
+        if (start < map.Length - 1 && (ParsePipe(map[start + 1]) & Direction.West) != 0)
+            return Direction.East;
+        return Direction.South;
     }
     
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
