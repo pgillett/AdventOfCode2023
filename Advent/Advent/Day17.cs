@@ -14,8 +14,17 @@ public class Day17
             .Select(l => l.Select(c => c - '0').ToArray()).ToArray();
 
         var lossMap = map.Select(r =>
-            r.Select(c => new Dictionary<(Direction, int), int>())
-                .ToArray()).ToArray();
+            r.Select(c =>
+            {
+                var losses = new int[5][];
+                for (var d = 0; d < 5; d++)
+                {
+                    losses[d] = new int[10];
+                    Array.Fill(losses[d], int.MaxValue);
+                }
+
+                return losses;
+            }).ToArray()).ToArray();
 
         var queue = new Queue<(int y, int x, Direction direction, int steps, int loss)>();
 
@@ -27,12 +36,21 @@ public class Day17
 
             var loss = pos.loss + map[pos.y][pos.x];
 
-            var mapLookup = lossMap[pos.y][pos.x];
+            var mapLookup = lossMap[pos.y][pos.x][(int)pos.direction];
 
-            if (!mapLookup.ContainsKey((pos.direction, pos.steps)) ||
-                (loss < mapLookup[(pos.direction, pos.steps)]))
+            var skip = false;
+            for (var s = 0; s <= pos.steps; s++)
             {
-                mapLookup[(pos.direction, pos.steps)] = loss;
+                if (mapLookup[s] <= loss)
+                {
+                    skip = true;
+                    break;
+                }
+            }
+            if(skip) continue;
+          // if (loss < mapLookup[pos.steps])
+            {
+                mapLookup[pos.steps] = loss;
                 var steps = pos.steps + 1;
                 if (pos.x > 0 && pos.direction != Direction.Right)
                 {
@@ -77,22 +95,32 @@ public class Day17
         //     }
         // }
         
-        return lossMap[map.Length-1][map[0].Length-1].Values.Min();
+        return lossMap[map.Length - 1][map[0].Length - 1]
+            .Min(d => d.Min());
     }
 
     public enum Direction
     {
         Up, Down, Left, Right, Undefined
     }
-
+    
     public int Part2(string input)
     {
                 var map = input.Split(Environment.NewLine)
             .Select(l => l.Select(c => c - '0').ToArray()).ToArray();
 
-        var lossMap = map.Select(r =>
-            r.Select(c => new Dictionary<(Direction, int), int>())
-                .ToArray()).ToArray();
+                var lossMap = map.Select(r =>
+                    r.Select(c =>
+                    {
+                        var losses = new int[5][];
+                        for (var d = 0; d < 5; d++)
+                        {
+                            losses[d] = new int[10];
+                            Array.Fill(losses[d], int.MaxValue);
+                        }
+
+                        return losses;
+                    }).ToArray()).ToArray();
 
         var queue = new Queue<(int y, int x, Direction direction, int steps, int loss)>();
 
@@ -103,16 +131,34 @@ public class Day17
             var pos = queue.Dequeue();
 
             var loss = pos.loss + map[pos.y][pos.x];
+            
+            var mapLookup = lossMap[pos.y][pos.x][(int)pos.direction];
+            
+            if(mapLookup[pos.steps] <= loss) continue;
 
-            var mapLookup = lossMap[pos.y][pos.x];
-
-            if (!mapLookup.ContainsKey((pos.direction, pos.steps)) ||
-                (loss < mapLookup[(pos.direction, pos.steps)]))
+            var skip = false;
+            if (pos.steps >= 4)
+            {
+                for (var s = 4; s < pos.steps; s++)
+                {
+                    if (mapLookup[s] <= loss)
+                    {
+                        skip = true;
+                        break;
+                    }
+                }
+            }
+//            if (!mapLookup.ContainsKey((pos.direction, pos.steps)) ||
+//                (loss < mapLookup[(pos.direction, pos.steps)]))
             {
                 if (pos.y == map.Length - 1 && pos.x == map[0].Length - 1 && pos.steps < 3)
                     continue;
                 
-                mapLookup[(pos.direction, pos.steps)] = loss;
+                //mapLookup[(pos.direction, pos.steps)] = loss;
+                
+                mapLookup[pos.steps] = loss;
+                if (skip) continue;
+
                 var steps = pos.steps + 1;
                 if (pos.x > 0 && pos.direction != Direction.Right
                               && (pos.direction == Direction.Left || steps > 3))
@@ -161,6 +207,8 @@ public class Day17
         //     }
         // }
         
-        return lossMap[map.Length-1][map[0].Length-1].Values.Min();
+//        return lossMap[map.Length-1][map[0].Length-1].Values.Min();
+        return lossMap[map.Length - 1][map[0].Length - 1]
+            .Min(d => d.Min());
     }
 }
