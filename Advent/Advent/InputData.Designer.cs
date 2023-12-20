@@ -398,7 +398,41 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to R 4 (#2dbea0)
+        ///U 7 (#771413)
+        ///R 5 (#991f00)
+        ///U 4 (#0db993)
+        ///R 3 (#1c6ab0)
+        ///D 11 (#67d2f3)
+        ///R 4 (#778c30)
+        ///U 3 (#7535c3)
+        ///R 2 (#2afd02)
+        ///U 3 (#84a633)
+        ///R 5 (#7d6492)
+        ///U 7 (#236953)
+        ///R 4 (#4598b2)
+        ///U 5 (#5c4bc3)
+        ///R 7 (#2f17b2)
+        ///U 4 (#76bf51)
+        ///R 5 (#701390)
+        ///U 8 (#388c61)
+        ///L 5 (#701392)
+        ///D 5 (#550f91)
+        ///L 6 (#3dc292)
+        ///U 5 (#43af93)
+        ///L 8 (#311ed2)
+        ///U 5 (#574df3)
+        ///R 9 (#21efb2)
+        ///U 4 (#912163)
+        ///R 2 (#8a10e2)
+        ///D 4 (#83a213)
+        ///R 8 (#7a0f52)
+        ///U 6 (#2f5653)
+        ///L 3 (#17f722)
+        ///U 3 (#53bf23)
+        ///L 10 (#012322)
+        ///U 2 (#48b7b1)
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day18 {
             get {
@@ -407,7 +441,26 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to kbr{x&gt;2309:A,R}
+        ///rp{a&gt;2160:mcm,m&lt;3139:bz,fs}
+        ///hqr{a&gt;3048:R,x&gt;1298:R,R}
+        ///ht{s&lt;1042:A,a&lt;3744:A,a&gt;3879:lb,zsj}
+        ///hkl{x&lt;2690:xps,gsq}
+        ///bvk{s&lt;464:R,x&gt;1190:R,a&lt;3443:A,A}
+        ///mj{a&lt;725:R,R}
+        ///kph{s&lt;385:A,A}
+        ///vr{x&gt;1596:xt,nk}
+        ///hc{m&lt;999:A,x&lt;224:R,R}
+        ///bp{a&gt;1785:msj,sk}
+        ///fs{a&lt;1989:A,x&gt;561:kdv,x&gt;192:A,R}
+        ///nls{x&gt;3679:R,s&lt;1583:A,s&lt;1669:A,A}
+        ///gsq{a&gt;1760:A,A}
+        ///phd{a&lt;187:R,a&gt;307:A,s&gt;2783:A,A}
+        ///nb{s&lt;238:A,R}
+        ///rs{x&lt;2853:cd,a&lt;1366:pxm,m&gt;2215:cfp,bpt}
+        ///cvn{m&gt;1940:tb,s&lt;421:tmg,s&gt;560:nnq,A}
+        ///fh{x&lt;264:tf,hvg}
+        ///kl{x&gt;382:R,s&gt;1772:R,s&gt;1604 [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day19 {
             get {
