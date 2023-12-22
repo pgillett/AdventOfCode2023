@@ -469,7 +469,39 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to %vg -&gt; lf, vd
+        ///%dr -&gt; kg
+        ///%cn -&gt; mv, pt
+        ///%rq -&gt; bk, gr
+        ///%vp -&gt; lp, bk
+        ///%kg -&gt; lv
+        ///%lv -&gt; jc, tp
+        ///%sj -&gt; rm, vd
+        ///%jc -&gt; tp, qr
+        ///%km -&gt; tp, dr
+        ///%jx -&gt; cn
+        ///&amp;vd -&gt; tf, lf, nb, cx, hx, lr
+        ///%lp -&gt; jt, bk
+        ///%vj -&gt; ps
+        ///broadcaster -&gt; km, lr, xh, rf
+        ///%dj -&gt; pt, gc
+        ///%cg -&gt; vd, hx
+        ///&amp;ln -&gt; tg
+        ///%fl -&gt; pt, sk
+        ///%lm -&gt; tr, bk
+        ///%lr -&gt; vd, vg
+        ///&amp;pt -&gt; vq, rf, cm, jx, rg
+        ///%cx -&gt; gp
+        ///%gp -&gt; vd, sj
+        ///&amp;db -&gt; tg
+        ///%st -&gt; vd
+        ///%jt -&gt; bk
+        ///%jh -&gt; lm, bk
+        ///%xf -&gt; bd, tp
+        ///%gc -&gt; cm, pt
+        ///&amp;tp -&gt; dr, km, kg, db, vj, qr
+        ///%ps -&gt; xf, tp
+        ///%rf -&gt; p [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day20 {
             get {
@@ -478,7 +510,10 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to ...................................................................................................................................
+        ///...##......#....#...#.....#.#....#...#...#...#......#........................##......#..#..#.#........#....................##......
+        ///...#.......#..........#..#....#................#...##.....##...................#..........###......#.....#.........#....#.#........
+        ///........#..##.............#..#...##...#..#...##...............................#.........................#........ [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day21 {
             get {
@@ -487,7 +522,38 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 7,6,120~8,6,120
+        ///7,3,219~9,3,219
+        ///2,1,54~4,1,54
+        ///3,1,321~5,1,321
+        ///7,3,144~9,3,144
+        ///1,9,122~4,9,122
+        ///8,0,105~8,1,105
+        ///3,2,254~3,4,254
+        ///9,5,31~9,7,31
+        ///9,8,16~9,8,18
+        ///6,0,21~8,0,21
+        ///2,6,148~2,6,148
+        ///3,0,279~3,0,280
+        ///0,8,108~0,8,110
+        ///1,4,93~1,5,93
+        ///2,7,119~3,7,119
+        ///2,4,155~5,4,155
+        ///3,1,100~3,3,100
+        ///2,2,84~2,3,84
+        ///3,8,47~4,8,47
+        ///5,0,9~5,2,9
+        ///1,2,157~1,2,160
+        ///7,3,287~8,3,287
+        ///5,5,309~5,5,311
+        ///2,5,274~2,8,274
+        ///4,4,263~5,4,263
+        ///4,5,139~7,5,139
+        ///6,0,203~9,0,203
+        ///6,9,90~7,9,90
+        ///2,6,293~2,7,293
+        ///4,5,229~4,8,229
+        ///1,0,1 [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day22 {
             get {
