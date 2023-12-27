@@ -44,14 +44,14 @@ public class Day23
 
         var nodes = GetNodes(start, map, hills);
 
-        var queue = new Stack<(Node node, int step, long status)>();
-        queue.Push((start, 0, 0L));
+        var stack = new Stack<(Node node, int step, long status)>();
+        stack.Push((start, 0, 0L));
 
         var end = nodes[(map.Length - 1, map[0].Length - 2)];
 
-        while (queue.Count > 0)
+        while (stack.Count > 0)
         {
-            var pos = queue.Pop();
+            var pos = stack.Pop();
             if (pos.node == end)
             {
                 routes.Add(pos.step);
@@ -61,7 +61,7 @@ public class Day23
             foreach (var to in pos.node.Joins)
             {
                 if ((pos.status & (1L << to.Key.No)) == 0)
-                    queue.Push((to.Key, pos.step + to.Value, pos.status | (1L << to.Key.No)));
+                    stack.Push((to.Key, pos.step + to.Value, pos.status | (1L << to.Key.No)));
             }
         }
 

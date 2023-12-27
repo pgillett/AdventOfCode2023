@@ -156,9 +156,7 @@ class Program
         
         if (IncludeDay(24))
         {
-            var day24 = new Day24();
-            Output(24, 1, "Part 1", day24.Part1(InputData.Day24));
-            Output(24, 2, "Part 2", day24.Part2(InputData.Day24));
+            //BenchmarkRunner.Run<Day24Benchmark>();
         }
         
         if (IncludeDay(25))
