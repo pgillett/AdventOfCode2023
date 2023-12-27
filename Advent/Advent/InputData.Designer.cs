@@ -590,7 +590,39 @@ namespace Advent {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to shd: hzh hcz sch rnf
+        ///pmk: dpr
+        ///hcf: sjt stk plv fjx
+        ///kkp: ggq fqq
+        ///fhc: mvh
+        ///rrx: jjj qht
+        ///bhc: grq qmx cdr
+        ///kzf: mnc ksm nzj gtt pqq
+        ///qhk: hmm jxg qtb
+        ///hzp: zrx hst
+        ///lss: kzl dzx tjb
+        ///jvh: vfj
+        ///cnz: tlp
+        ///lsx: pbb gsg
+        ///jnq: mjk chg dmq dbb
+        ///xrf: znm
+        ///dpj: zgl dpz flt rfr
+        ///ntl: kfg dnm
+        ///qhz: fdl
+        ///bkv: ptn ldn nlg nch glp
+        ///mhg: ngq jjq fvr
+        ///fmt: vsm xtb mdj qst
+        ///bhl: nmk plc
+        ///cqn: dpz
+        ///mgn: frj cql
+        ///sqq: phd ctg zlx ftn
+        ///zvv: xnj
+        ///bbn: bmb dmb
+        ///sfj: fnb
+        ///qkg: jck vzz xlx vrt
+        ///dtj: fxl fbf
+        ///vgn: qbk qmx
+        ///ssd: [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Day25 {
             get {
