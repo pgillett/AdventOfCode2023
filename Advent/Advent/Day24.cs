@@ -77,17 +77,17 @@ public class Day24
             .Select(l => new Hailstone(l)).ToArray();
 
         var t0 = 1;
-        while (t0 < 10)
+        while (t0 < 100)
         {
             var h0 = hailstones[0];
             var h1 = hailstones[1];
             var h2 = hailstones[2];
 
-            var pos1 = h0.Move(t0);
+            var pos0 = h0.Move(t0);
 
             var t1 = 1;
 
-            while (t1 < 10)
+            while (t1 < 100)
             {
                 if (t1 == t0)
                 {
@@ -95,28 +95,38 @@ public class Day24
                     continue;
                 }
                 
-                var pos2 = h1.Move(t1);
+                var pos1 = h1.Move(t1);
 
                 var dt = t1 - t0;
 
-                if ((pos2.x - pos1.x) % dt != 0
-                    || (pos2.y - pos1.y) % dt != 0
-                    || (pos2.z - pos1.z) % dt != 0)
+                if ((pos1.x - pos0.x) % dt != 0
+                    || (pos1.y - pos0.y) % dt != 0
+                    || (pos1.z - pos0.z) % dt != 0)
                 {
                     t1++;
                     continue;
                 }
 
-                var vx = (pos2.x - pos1.x) / dt;
-                var vy = (pos2.y - pos1.y) / dt;
-                var vz = (pos2.z - pos1.z) / dt;
-                Debug.WriteLine($"Try {t0},{t1} : {pos1.x},{pos2.y},{pos1.z} {vx},{vy},{vz}");
+                var vx = (pos1.x - pos0.x) / dt;
+                var vy = (pos1.y - pos0.y) / dt;
+                var vz = (pos1.z - pos0.z) / dt;
+         //       Debug.WriteLine($"Try {t0} @ {pos0.x},{pos0.y},{pos0.z} and {t1} @ {pos1.x},{pos1.y},{pos1.z} {vx},{vy},{vz}");
 
-                if (Intersect(vx, pos1.x, h2.VelX, h2.X)
-                    && Intersect(vy, pos1.y, h2.VelY, h2.Y)
-                    && Intersect(vz, pos1.z, h2.VelZ, h2.Z))
+                var sx = pos0.x - vx * t0;
+                var sy = pos0.y - vy * t0;
+                var sz = pos0.z - vz * t0;
+
+                if (Intersect(vx, sx, h2.VelX, h2.X)
+                    && Intersect(vy, sy, h2.VelY, h2.Y)
+                    && Intersect(vz, sz, h2.VelZ, h2.Z))
                 {
-                    Debug.WriteLine($"{t0}: {vx},{vy},{vz}");
+                    var t2 = (h2.X - sx) / (vx - h2.VelX);
+                    var pos2 = h2.Move((int)t2);
+                    Debug.WriteLine("Found:");
+                    Debug.WriteLine($"H0: {t0} {pos0.x},{pos0.y},{pos0.z}");
+                    Debug.WriteLine($"H1: {t1} {pos1.x},{pos1.y},{pos1.z}");
+                    Debug.WriteLine($"H2: {t2} {pos2.x},{pos2.y},{pos2.z}");
+                    Debug.WriteLine($"R: {sx},{sy},{sz} v {vx},{vy},{vz}");
                 }
 
                 t1++;
@@ -463,6 +473,9 @@ public class Day24
     public bool Intersect(long v1, long s1, long v2, long s2)
     {
         if (v1 == v2) return (s2 == s1);
+        var s = s2 - s1;
+        var v = v1 - v2;
+        var m = s % v;
         return (s2 - s1) % (v1 - v2) == 0;
     }
 }
