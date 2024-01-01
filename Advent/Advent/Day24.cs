@@ -43,7 +43,150 @@ public class Day24
         return count;
     }
 
+    public class Hailstone
+    {
+        public long X;
+        public long Y;
+        public long Z;
+
+        public long VelX;
+        public long VelY;
+        public long VelZ;
+
+        public Hailstone(string input)
+        {
+            var s = input.Split(new[] { '@', ',' }, StringSplitOptions.TrimEntries).Select(long.Parse).ToArray();
+            X = s[0];
+            Y = s[1];
+            Z = s[2];
+
+            VelX = s[3];
+            VelY = s[4];
+            VelZ = s[5];
+        }
+
+        public (long x, long y, long z) Move(int time)
+        {
+            return (X + VelX * time, Y + VelY * time, Z + VelZ * time);
+        }
+    }
+    
     public int Part2(string input)
+    {
+        var hailstones = input.Split(Environment.NewLine)
+            .Select(l => new Hailstone(l)).ToArray();
+
+        var t0 = 1;
+        while (t0 < 10)
+        {
+            var h0 = hailstones[0];
+            var h1 = hailstones[1];
+            var h2 = hailstones[2];
+
+            var pos1 = h0.Move(t0);
+
+            var t1 = 1;
+
+            while (t1 < 10)
+            {
+                if (t1 == t0)
+                {
+                    t1++;
+                    continue;
+                }
+                
+                var pos2 = h1.Move(t1);
+
+                var dt = t1 - t0;
+
+                if ((pos2.x - pos1.x) % dt != 0
+                    || (pos2.y - pos1.y) % dt != 0
+                    || (pos2.z - pos1.z) % dt != 0)
+                {
+                    t1++;
+                    continue;
+                }
+
+                var vx = (pos2.x - pos1.x) / dt;
+                var vy = (pos2.y - pos1.y) / dt;
+                var vz = (pos2.z - pos1.z) / dt;
+                Debug.WriteLine($"Try {t0},{t1} : {pos1.x},{pos2.y},{pos1.z} {vx},{vy},{vz}");
+
+                if (Intersect(vx, pos1.x, h2.VelX, h2.X)
+                    && Intersect(vy, pos1.y, h2.VelY, h2.Y)
+                    && Intersect(vz, pos1.z, h2.VelZ, h2.Z))
+                {
+                    Debug.WriteLine($"{t0}: {vx},{vy},{vz}");
+                }
+
+                t1++;
+            }
+
+            t0++;
+        }
+        return 0;
+    }
+    
+    public int Part2d(string input)
+    {
+        var hailstones = input.Split(Environment.NewLine)
+            .Select(l => new Hailstone(l)).ToArray();
+
+        var t0 = 1;
+        while (true)
+        {
+            var h0 = hailstones[0];
+            var h1 = hailstones[1];
+            var h2 = hailstones[2];
+
+            var pos1 = h0.Move(t0);
+
+            var minVelX = long.MinValue;
+            var maxVelX = long.MaxValue;
+            var minVelY = long.MinValue;
+            var maxVelY = long.MaxValue;
+            var minVelZ = long.MinValue;
+            var maxVelZ = long.MaxValue;
+
+            foreach (var hailstone in hailstones)
+            {
+                if (pos1.x < hailstone.X)
+                    minVelX = long.Max(minVelX, hailstone.VelX + 1);
+                if (pos1.x > hailstone.X)
+                    maxVelX = long.Min(maxVelX, hailstone.VelX - 1);
+                if (pos1.y < hailstone.Y)
+                    minVelY = long.Max(minVelY, hailstone.VelY + 1);
+                if (pos1.y > hailstone.Y)
+                    maxVelY = long.Min(maxVelY, hailstone.VelY - 1);
+                if (pos1.z < hailstone.Z)
+                    minVelZ = long.Max(minVelZ, hailstone.VelZ + 1);
+                if (pos1.z > hailstone.Z)
+                    maxVelZ = long.Min(maxVelZ, hailstone.VelZ - 1);
+            }
+            Debug.WriteLine($"Testing {t0} @ {pos1.x},{pos1.y},{pos1.z}");
+            Debug.WriteLine($"X {minVelX} to {maxVelX}");
+            Debug.WriteLine($"Y {minVelY} to {maxVelY}");
+            Debug.WriteLine($"Z {minVelZ} to {maxVelZ}");
+
+            if (minVelX == 0) minVelX++;
+            if (maxVelX == 0) maxVelX--;
+            if (minVelY == 0) minVelY++;
+            if (maxVelY == 0) maxVelY--;
+            if (minVelZ == 0) minVelZ++;
+            if (maxVelZ == 0) maxVelZ--;
+
+            if (minVelX > maxVelX || minVelY > maxVelY || minVelZ > maxVelZ)
+            {
+                t0++;
+                continue;
+            }
+
+            break;
+        }
+        return 0;
+    }
+
+    public int Part2a(string input)
     {
         var hailstones = input.Split(Environment.NewLine)
             .Select(l =>
